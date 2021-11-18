@@ -51,7 +51,7 @@ public class LoginController {
 		for (Login login : listaLogin) {
 			if(login.getUserNome().contains(usr.getUserNome())) {
 				if(login.getPassword().contains(usr.getPassword())) {
-					return new ResponseEntity<Login>(usr, HttpStatus.OK);
+					return new ResponseEntity<String>("Usuario logado com sucesso, Bem-vindo: " + usr.getUserNome(), HttpStatus.OK);
 				}
 			}
 		}	

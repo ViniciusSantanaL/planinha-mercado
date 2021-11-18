@@ -25,7 +25,7 @@ public class ProdutoController {
 	
 	@PostMapping(value = "cadastrarProduto")
     @ResponseBody
-    public ResponseEntity<?> cadastrarLogin(@RequestBody @Valid Produto prod){
+    public ResponseEntity<?> cadastrarProduto(@RequestBody @Valid Produto prod){
 		
 		prod.setNome(prod.getNome().trim());
 	
