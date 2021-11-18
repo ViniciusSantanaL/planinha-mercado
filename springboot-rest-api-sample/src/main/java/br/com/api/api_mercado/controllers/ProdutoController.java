@@ -13,10 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.api.api_mercado.model.Funcionario;
-import br.com.api.api_mercado.model.Login;
 import br.com.api.api_mercado.model.Produto;
-import br.com.api.api_mercado.repository.LoginRepository;
 import br.com.api.api_mercado.repository.ProdutoRepository;
 
 

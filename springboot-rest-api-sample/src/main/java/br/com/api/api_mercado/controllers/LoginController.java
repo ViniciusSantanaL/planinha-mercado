@@ -50,10 +50,11 @@ public class LoginController {
 		
 		for (Login login : listaLogin) {
 			if(login.getUserNome().contains(usr.getUserNome())) {
-				return new ResponseEntity<Login>(usr, HttpStatus.OK);
+				if(login.getPassword().contains(usr.getPassword())) {
+					return new ResponseEntity<Login>(usr, HttpStatus.OK);
+				}
 			}
 		}	
-		
 		return new ResponseEntity<String>("Este Login de User NAO EXISTE !!", HttpStatus.OK);
 		
     }
