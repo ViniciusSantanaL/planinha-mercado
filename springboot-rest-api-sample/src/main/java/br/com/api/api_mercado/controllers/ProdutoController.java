@@ -22,7 +22,7 @@ public class ProdutoController {
 	@Autowired /*  CDI - INJEÇÃO DE DEPENDENCIA   */
 	private LoginRepository loginRepository;
 	
-	@PostMapping(value = "cadastrarLogin")
+	@PostMapping(value = "cadastrarProduto")
     @ResponseBody
     public ResponseEntity<?> cadastrarLogin(@RequestBody @Valid Login usr){
 		
