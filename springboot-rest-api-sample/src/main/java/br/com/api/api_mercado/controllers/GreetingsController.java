@@ -20,8 +20,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.api.api_mercado.model.Usuario;
-import br.com.api.api_mercado.repository.UsuarioRepository;
+import br.com.api.api_mercado.model.Funcionario;
+import br.com.api.api_mercado.repository.FuncionarioRepository;
 
 /**
  *
@@ -31,7 +31,7 @@ import br.com.api.api_mercado.repository.UsuarioRepository;
 public class GreetingsController {
 	
 	@Autowired /*  CDI - INJEÇÃO DE DEPENDENCIA   */
-	private UsuarioRepository usuarioRepository;
+	private FuncionarioRepository funcRepository;
 	
     /**
      *
@@ -44,41 +44,41 @@ public class GreetingsController {
         return "Requisao GET Padrao, Olá: " + name + "!";
     }
     
-    @GetMapping(value = "listatodos")
+    @GetMapping(value = "listaTodosFuncio")
     @ResponseBody /*  Retorna os dados paara o corpo da resposta   */
-    public ResponseEntity<List<Usuario>> listaUsuario(){
+    public ResponseEntity<List<Funcionario>> listafunc(){
     	
     	/*  Chama a interface que usa o metodo extendido da Interface JPArEPOSITORY  */
-    	List<Usuario> usuarios = usuarioRepository.findAll();
+    	List<Funcionario> funcs = funcRepository.findAll();
     	
-    	return new ResponseEntity<List<Usuario>>(usuarios, HttpStatus.OK); /*  Retorna a lista em json  */
+    	return new ResponseEntity<List<Funcionario>>(funcs, HttpStatus.OK); /*  Retorna a lista em json  */
     }
     
-    @PostMapping(value = "cadastrar")
+    @PostMapping(value = "cadastrarFuncionario")
     @ResponseBody
-    public ResponseEntity<Usuario> salvar(@RequestBody @Valid Usuario usuario){
-    	Usuario user = usuarioRepository.save(usuario);
+    public ResponseEntity<Funcionario> salvar(@RequestBody @Valid Funcionario func){
+    	Funcionario user = funcRepository.save(func);
     	
-    	return new ResponseEntity<Usuario>(user, HttpStatus.CREATED);
+    	return new ResponseEntity<Funcionario>(user, HttpStatus.CREATED);
     }
     
-    @DeleteMapping(value = "deletar")
+    @DeleteMapping(value = "deletarFuncio")
     @ResponseBody /*  Retorna os dados paara o corpo da resposta   */
     public ResponseEntity<String> delete(@RequestParam Long idUser){
     	
-    	usuarioRepository.deleteById(idUser);
+    	funcRepository.deleteById(idUser);
     	
     	return new ResponseEntity<String>("User Deletado com sucesso", HttpStatus.OK);
     }
     
-    @PutMapping(value = "atualizar")
+    @PutMapping(value = "atualizarFuncionario")
     @ResponseBody /*  Retorna os dados paara o corpo da resposta   */
-    public ResponseEntity<Usuario> atualizar(@RequestBody @Valid  Usuario usuario){
+    public ResponseEntity<Funcionario> atualizar(@RequestBody @Valid  Funcionario func){
     	
   	
-    	Usuario user = usuarioRepository.saveAndFlush(usuario);
+    	Funcionario user = funcRepository.saveAndFlush(func);
     	
-    	return new ResponseEntity<Usuario>(user, HttpStatus.OK);
+    	return new ResponseEntity<Funcionario>(user, HttpStatus.OK);
     }
     
 }
