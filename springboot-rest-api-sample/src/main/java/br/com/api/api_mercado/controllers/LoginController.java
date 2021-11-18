@@ -17,7 +17,7 @@ import br.com.api.api_mercado.repository.LoginRepository;
 
 
 @RestController
-public class AuthController {
+public class LoginController {
 	
 	@Autowired /*  CDI - INJEÇÃO DE DEPENDENCIA   */
 	private LoginRepository loginRepository;

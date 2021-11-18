@@ -28,7 +28,7 @@ import br.com.api.api_mercado.repository.FuncionarioRepository;
  * A sample greetings controller to return greeting text
  */
 @RestController
-public class GreetingsController {
+public class FuncionarioController {
 	
 	@Autowired /*  CDI - INJEÇÃO DE DEPENDENCIA   */
 	private FuncionarioRepository funcRepository;
